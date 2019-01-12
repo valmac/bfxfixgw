@@ -1,8 +1,8 @@
 #!/bin/bash
+NAME=bfx-orders-fix42
 
 function build_orders_fix42(){
-  NAME=bfx-fix42-ord
-  cd dockers/orders-fix42
+  cd dockers/$NAME
   docker build -t $NAME .
   docker image tag $NAME $NAME:latest
   cd ~
@@ -10,8 +10,8 @@ function build_orders_fix42(){
 
 
 function build_orders_fix42_no_cache(){
-  NAME=bfx-fix42-ord
-  cd dockers/orders-fix42
+
+  cd dockers/$NAME
   docker build --no-cache -t $NAME .
   docker image tag $NAME $NAME:latest
   cd ~
