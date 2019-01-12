@@ -19,7 +19,7 @@ RUN mkdir -p $GOPATH/src/github.com/bitfinexcom
 WORKDIR $GOPATH/src/github.com/bitfinexcom/
 
 # Clone repo (into workdir)
-RUN git clone --single-branch --branch feature-start-gw-shell https://github.com/valmac/bfxfixgw.git
+RUN git clone --single-branch --branch develop https://github.com/valmac/bfxfixgw.git
 
 # Set workdir (cd) to project folder
 WORKDIR $GOPATH/src/github.com/bitfinexcom/bfxfixgw/
