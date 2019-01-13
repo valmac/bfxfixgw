@@ -56,6 +56,7 @@ VOLUME ["/fix_settings"]
 # Set workdir (cd) to VOLUME, for logging
 WORKDIR /fix_settings
 
+EXPOSE 5002
 # Activate application user 
 USER appuser
 
