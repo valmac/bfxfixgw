@@ -34,9 +34,9 @@ func OrderNewTypeFromFIX42NewOrderSingle(nos fix42nos.NewOrderSingle) (string, e
 
 	switch ot {
 	case enum.OrdType_MARKET:
-		return bitfinex.OrderTypeExchangeMarket, nil
+		return bitfinex.OrderTypeMarket, nil
 	case enum.OrdType_LIMIT:
-		return bitfinex.OrderTypeExchangeLimit, nil
+		return bitfinex.OrderTypeLimit, nil
 	case enum.OrdType_STOP:
 		execInst, err := nos.GetExecInst()
 		if err == nil && strings.Contains(string(execInst), string(enum.ExecInst_PRIMARY_PEG)) {
