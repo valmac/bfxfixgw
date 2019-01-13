@@ -30,11 +30,18 @@ RUN go get -d -v
 # Optimized build the binary 
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags="-w -s" -o /go/bin/bfxfixgw
 
-# Create dir for settings and logs 
+# Create dir for settings 
 RUN mkdir /fix_settings
 
 # Pass rights for appuser
-RUN chown -R 1000:appuser /fix_settings
+# appuser don't need to own fix_settings !!!
+#RUN chown -R 1000:appuser /fix_settings
+
+# Create dir for logs 
+RUN mkdir /fix_logs
+
+# Pass rights for appuser to fix_logs folder
+RUN chown -R 1000:appuser /fix_logs
 
 # Set library env
 ENV FIX_SETTINGS_DIRECTORY=/fix_settings
@@ -54,7 +61,7 @@ COPY --from=builder /go/bin/bfxfixgw /go/bin/bfxfixgw
 VOLUME ["/fix_settings"]
 
 # Set workdir (cd) to VOLUME, for logging
-WORKDIR /fix_settings
+WORKDIR /fix_logs
 
 EXPOSE 5002
 # Activate application user 
