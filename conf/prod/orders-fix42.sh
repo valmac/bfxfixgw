@@ -4,7 +4,7 @@ APP=orders-fix42
 OUT_FILE=$APP.out
 PID_FILE=$APP.pid
 CFG_DIR=~/go/src/github.com/bitfinexcom/bfxfixgw/conf/prod/service
-#CFG_FILE="orders_fix42.cfg"
+CFG_FILE="orders_fix42.cfg"
 
 function welcome(){
     echo "====================================="
@@ -65,6 +65,6 @@ case $1 in
   *)
     
     echo "Usage:"
-    echo "      gw.sh {start|stop|status}"
+    echo "      $APP.sh {start|stop|status}"
     ;;
 esac
