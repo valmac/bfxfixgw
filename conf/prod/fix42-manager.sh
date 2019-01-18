@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP=orders-fix42
+APP=fix42-manager
 OUT_FILE=$APP.out
 PID_FILE=$APP.pid
 CFG_DIR=~/go/src/github.com/bitfinexcom/bfxfixgw/conf/prod/service
@@ -9,7 +9,7 @@ CFG_FILE="orders_fix42.cfg"
 
 function welcome(){
     echo "====================================="
-    echo "Bitfinex Fix42 ORDERS GateWay manager"
+    echo "   Bitfinex Fix42 GateWay manager"
     echo "====================================="
 }
 function get_pid(){
