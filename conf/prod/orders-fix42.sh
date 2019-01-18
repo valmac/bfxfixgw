@@ -64,6 +64,6 @@ case $1 in
 
   *)
     echo "Usage:"
-    echo "      gw.sh {start|stop|status}"
+    echo "      $APP.sh {start|stop|status}"
     ;;
 esac
