@@ -3,6 +3,8 @@ package websocket
 import (
 	"strconv"
 
+	"strings"
+
 	"github.com/bitfinexcom/bfxfixgw/convert"
 	"github.com/bitfinexcom/bitfinex-api-go/v2"
 	"github.com/bitfinexcom/bitfinex-api-go/v2/websocket"
@@ -11,7 +13,6 @@ import (
 	"github.com/quickfixgo/quickfix"
 	"github.com/shopspring/decimal"
 	"go.uber.org/zap"
-	"strings"
 )
 
 // Handle Bitfinex messages and process them as FIX42 downstream.
@@ -175,7 +176,7 @@ func (w *Websocket) FIX42NotificationHandler(d *bitfinex.Notification, sID quick
 			}
 			er := convert.FIX42ExecutionReport(orig.Symbol, orig.ClOrdID, orig.OrderID, orig.Account, enum.ExecType_PENDING_CANCEL, orig.Side, orig.Qty, 0.0, orig.FilledQty(), orig.Px, orig.Stop, orig.Trail, orig.AvgFillPx(), enum.OrdStatus_PENDING_CANCEL, orig.OrderType, orig.TimeInForce, d.Text, w.Symbology, sID.TargetCompID, orig.Flags)
 			if orig.Px > 0 {
-				er.SetPrice(decimal.NewFromFloat(orig.Px), 4)
+				er.SetPrice(decimal.NewFromFloat(orig.Px), 8)
 			}
 			quickfix.SendToTarget(er, sID)
 		}

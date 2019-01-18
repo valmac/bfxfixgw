@@ -74,12 +74,12 @@ func LastSharesToFIX(qty float64) field.LastSharesField {
 }
 
 func CumQtyToFIX(cumQty float64) field.CumQtyField {
-	return field.NewCumQty(decimal.NewFromFloat(cumQty), 2)
+	return field.NewCumQty(decimal.NewFromFloat(cumQty), 4)
 }
 
 func AvgPxToFIX(priceAvg float64) field.AvgPxField {
 	d := decimal.NewFromFloat(priceAvg)
-	return field.NewAvgPx(d, 2)
+	return field.NewAvgPx(d, 8)
 }
 
 func OrdTypeToFIX(ordtype bitfinex.OrderType) enum.OrdType {
