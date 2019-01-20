@@ -74,6 +74,10 @@ case $1 in
   stop)
     do_stop
     ;;
+  restart)
+    do_stop
+    do_start
+    ;;
   status)
     do_status
     ;;
@@ -82,6 +86,6 @@ case $1 in
     ;;
   *)
     echo "Usage:"
-    echo "      $APP.sh {start|stop|status|env}"
+    echo "      $APP.sh {start|stop|restart|status|env}"
     ;;
 esac
